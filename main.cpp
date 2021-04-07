@@ -16,10 +16,12 @@ int main() {
     bool quit = false;
     Stos_tablica stos;
 
+    
     for(int i =0; i<100;i++)
     {
-        stos.push(i);//stos.push((rand()%2000)-1000);
+        stos.push((rand()%2000)-1000);
     }
+    
 
     while (!quit){
     menu();
@@ -43,8 +45,7 @@ int main() {
         case 5:
         quit = true;
         default:
-        //std::cout << "Niepoprawna komenda.";
-        stos.info();
+        std::cout << "Niepoprawna komenda.";
         break;
     }
     }
