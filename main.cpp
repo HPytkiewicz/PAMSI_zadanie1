@@ -43,7 +43,8 @@ int main() {
         case 5:
         quit = true;
         default:
-        std::cout << "Niepoprawna komenda.";
+        //std::cout << "Niepoprawna komenda.";
+        stos.info();
         break;
     }
     }

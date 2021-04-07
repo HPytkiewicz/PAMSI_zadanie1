@@ -21,6 +21,7 @@ bool isEmpty();
 bool push(const double& elem);
 double pop();
 bool displayAll();
+void info();
 };
 
 Stos_tablica::Stos_tablica(int size)
@@ -63,7 +64,6 @@ bool Stos_tablica::push(const double& elem)
             temp[i] = this->tab[i];
         this->currentSize *= 2;
         this->tab = temp;
-        return false;
     }
         this->elemCount++;
         this->tab[elemCount]=elem;
@@ -90,4 +90,10 @@ bool Stos_tablica::displayAll()
             for (int i = 0; i< this->size(); i++)
             std::cout << i << ". " << this->tab[i] << std::endl;
         }
+}
+
+void Stos_tablica::info()
+{
+    std::cout << "currentSize: " << this->currentSize << std::endl;
+    std::cout << "elemCount: " << this->elemCount << std::endl;
 }
