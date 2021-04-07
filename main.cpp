@@ -1,4 +1,5 @@
 #include "stos_tablica.hh"
+#include <cstdlib>
 
 void menu()
 {
@@ -14,6 +15,11 @@ int main() {
     int menuChoice;
     bool quit = false;
     Stos_tablica stos;
+
+    for(int i =0; i<100;i++)
+    {
+        stos.push(i);//stos.push((rand()%2000)-1000);
+    }
 
     while (!quit){
     menu();
@@ -41,6 +47,5 @@ int main() {
         break;
     }
     }
-
     return 0;
 }

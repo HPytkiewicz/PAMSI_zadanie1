@@ -8,12 +8,12 @@
 
 class Stos_tablica {
     private:
-    double tab[TAB_ROZMIAR];
+    double *tab;
     int currentSize;
     int elemCount;
 
 public:
-Stos_tablica();  // Konstruktor stosu
+Stos_tablica(int size = TAB_ROZMIAR);  // Konstruktor stosu
 ~Stos_tablica();    // Destruktor stosu
 double top();   
 int size();
@@ -23,28 +23,29 @@ double pop();
 bool displayAll();
 };
 
-Stos_tablica::Stos_tablica()
+Stos_tablica::Stos_tablica(int size)
 {
-    this->currentSize = TAB_ROZMIAR;
+    this->tab = new double[size];
     this->elemCount = -1;
+    this->currentSize = size;
 }
 
 Stos_tablica::~Stos_tablica()
 {
-
+    delete [] tab;
 }
 
 double Stos_tablica::top()
 {
     if (this->isEmpty())
-        return 0;//EmptyStackExecption;
+        return -1;//EmptyStackExecption;
     else 
         return this->tab[elemCount];
 }
 
 int Stos_tablica::size()
 {
-    return this->elemCount;
+    return this->elemCount+1;
 }
 
 bool Stos_tablica::isEmpty()
@@ -54,16 +55,19 @@ bool Stos_tablica::isEmpty()
 
 bool Stos_tablica::push(const double& elem)
 {
-    if(this->elemCount>=this->currentSize-1)
+    if(this->elemCount==this->currentSize-1)
     {
+        double* temp = new double[this->currentSize*2];
+
+        for(int i = 0; i<this->elemCount+1; i++)
+            temp[i] = this->tab[i];
+        this->currentSize *= 2;
+        this->tab = temp;
         return false;
     }
-    else 
-    {
         this->elemCount++;
         this->tab[elemCount]=elem;
         return true;
-    }
 }
 
 double Stos_tablica::pop()
@@ -83,7 +87,7 @@ bool Stos_tablica::displayAll()
         return false;
     else
         {
-            for (int i = 0; i< this->elemCount+1; i++)
+            for (int i = 0; i< this->size(); i++)
             std::cout << i << ". " << this->tab[i] << std::endl;
         }
 }
