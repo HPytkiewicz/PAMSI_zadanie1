@@ -21,7 +21,7 @@ bool isEmpty();
 void push(const double& elem);
 double pop();
 void displayAll();
-//void info();
+void removeAll();
 };
 
 Stos_tablica::Stos_tablica(int size)
@@ -117,3 +117,12 @@ void Stos_tablica::info()
     std::cout << "elemCount: " << this->elemCount << std::endl;
 }
 */
+
+void Stos_tablica::removeAll()
+{
+    int temp = this->size();
+    for(int i=0;i<temp;i++)
+    {
+        this->pop();
+    }
+}

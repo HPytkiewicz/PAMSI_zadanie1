@@ -15,6 +15,7 @@ class Stos_lista
     void push(double newElem);
     double pop();
     void displayAll();
+    void removeAll();
 };
 
 Stos_lista::Stos_lista()
@@ -69,4 +70,11 @@ void Stos_lista::displayAll()
         i--;
     }
 
+}
+
+void Stos_lista::removeAll()
+{
+    for(int i=0; i<this->size(); i++)
+        this->pop();
+    this->lista->setHead(NULL);
 }

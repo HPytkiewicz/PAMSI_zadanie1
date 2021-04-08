@@ -15,6 +15,7 @@ class Lista {
     void addFront(const double& newElem);
     void removeFront();
     Node* getHead() const {return head;}
+    void setHead(Node* newHead) {this->head = newHead;}
 };
 
 Lista::Lista()

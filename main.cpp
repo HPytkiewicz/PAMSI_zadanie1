@@ -1,6 +1,7 @@
 #include "stos_tablica.hh"
 #include "stos_lista.hh"
 #include <cstdlib>
+#include <ctime>
 
 void menu()
 {
@@ -15,14 +16,16 @@ void menu()
 int main() {
     int menuChoice;
     bool quit = false;
-    Stos_lista stos;
+    Stos_tablica stos;
 
-    
-    for(int i =0; i<100;i++)
+    clock_t t;
+    t = clock();
+    for(int i =0; i<1000;i++)
     {
-        stos.push(i); //stos.push((rand()%2000)-1000);
+        stos.push((rand()%2000)-1000);
     }
-    
+    t = clock() -t;
+    std::cout << "Dodanie do stosu 1000 elemetow zajmuje: " << (float)t/(1000*CLOCKS_PER_SEC) << " milisekund." << std::endl;
 
     while (!quit){
     menu();
@@ -35,16 +38,17 @@ int main() {
         stos.push(x);
         break;
         case 2:
-        std::cout << "Zpopowany element: " <<  stos.pop();
+        std::cout << "Zpopowany element: " <<  stos.pop() << std::endl;
         break;
         case 3:
-        std::cout << "Element na szczycie stosu: " << stos.top();
+        std::cout << "Element na szczycie stosu: " << stos.top() << std::endl;
         break;
         case 4:
         stos.displayAll();
         break;
         case 5:
         quit = true;
+        break;
         default:
         std::cout << "Niepoprawna komenda.";
         break;
