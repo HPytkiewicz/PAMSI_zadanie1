@@ -48,7 +48,6 @@ double& Stos_tablica::top()
     {
         std::cout << "Error: Empty stack" << std::endl;
     }
-    //return this->tab[elemCount];
 }
 
 int Stos_tablica::size()
@@ -100,23 +99,13 @@ void Stos_tablica::displayAll()
         if(this->isEmpty())
             throw EmptyStackException;
         for (int i = 0; i< this->size(); i++)
-        std::cout << i << ". " << this->tab[i] << std::endl;
+        std::cout << this->size()-i-1 << ". " << this->tab[i] << std::endl;
     }
     catch(int ex)
     {
         std::cout << "Error: Empty stack" << std::endl;
     }
-    //for (int i = 0; i< this->size(); i++)
-    //std::cout << i << ". " << this->tab[i] << std::endl;
 }
-
-/*
-void Stos_tablica::info()
-{
-    std::cout << "currentSize: " << this->currentSize << std::endl;
-    std::cout << "elemCount: " << this->elemCount << std::endl;
-}
-*/
 
 void Stos_tablica::removeAll()
 {

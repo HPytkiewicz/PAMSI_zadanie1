@@ -1,0 +1,62 @@
+Porównanie szybkości implementacji stosu bazującego na tablicy i stosu opartego na liście:
+
+Do zmierzenia czasu trwania dodawania 100, 1000, 100000 elementów do stosu, użyłem funkcji 
+clock() z pliku nagłówego <ctime>. Dodawane były losowe liczby z przedziału <-100000, 100000>.
+
+Każde dodanie było wykonywane pięciokrotnie:
+
+Dodawanie 100 elementów:
+
+Stos bazujący na tablicy:
+1. Dodanie do stosu 100 elemetow zajmuje: 0.012 milisekund.
+2. Dodanie do stosu 100 elemetow zajmuje: 0.013 milisekund.
+3. Dodanie do stosu 100 elemetow zajmuje: 0.004 milisekund.
+4. Dodanie do stosu 100 elemetow zajmuje: 0.035 milisekund.
+5. Dodanie do stosu 100 elemetow zajmuje: 0.015 milisekund.
+Średni czas: 0.0158 milisekundy
+
+Stos oparty na liście:
+1. Dodanie do stosu 100 elemetow zajmuje: 0.02 milisekund.
+2. Dodanie do stosu 100 elemetow zajmuje: 0.012 milisekund.
+3. Dodanie do stosu 100 elemetow zajmuje: 0.021 milisekund.
+4. Dodanie do stosu 100 elemetow zajmuje: 0.011 milisekund.
+5. Dodanie do stosu 100 elemetow zajmuje: 0.019 milisekund.
+Średni czas: 0.0166 milisekundy
+
+
+Dodawanie 1000 elementów:
+
+Stos bazujący na tablicy:
+1. Dodanie do stosu 1000 elemetow zajmuje: 0.095 milisekund.
+2. Dodanie do stosu 1000 elemetow zajmuje: 0.099 milisekund.
+3. Dodanie do stosu 1000 elemetow zajmuje: 0.125 milisekund.
+4. Dodanie do stosu 1000 elemetow zajmuje: 0.245 milisekund.
+5. Dodanie do stosu 1000 elemetow zajmuje: 0.11 milisekund.
+Średni czas: 0.1348 milisekundy
+
+Stos oparty na liście:
+1. Dodanie do stosu 1000 elemetow zajmuje: 0.189 milisekund.
+2. Dodanie do stosu 1000 elemetow zajmuje: 0.231 milisekund.
+3. Dodanie do stosu 1000 elemetow zajmuje: 0.253 milisekund.
+4. Dodanie do stosu 1000 elemetow zajmuje: 0.295 milisekund.
+5. Dodanie do stosu 1000 elemetow zajmuje: 0.219 milisekund.
+Średni czas: 0.2374 milisekundy
+
+
+Dodawanie 100000 elementów:
+
+Stos bazujący na tablicy:
+1. Dodanie do stosu 100000 elemetow zajmuje: 8.364 milisekund.
+2. Dodanie do stosu 100000 elemetow zajmuje: 9.563 milisekund.
+3. Dodanie do stosu 100000 elemetow zajmuje: 10.511 milisekund.
+4. Dodanie do stosu 100000 elemetow zajmuje: 9.201 milisekund.
+5. Dodanie do stosu 100000 elemetow zajmuje: 12.703 milisekund.
+Średni czas: 10.063 milisekundy
+
+Stos oparty na liście:
+1. Dodanie do stosu 100000 elemetow zajmuje: 22.137 milisekund.
+2. Dodanie do stosu 100000 elemetow zajmuje: 22.199 milisekund.
+3. Dodanie do stosu 100000 elemetow zajmuje: 30.823 milisekund.
+4. Dodanie do stosu 100000 elemetow zajmuje: 29.739 milisekund.
+5. Dodanie do stosu 100000 elemetow zajmuje: 29.452 milisekund.
+Średni czas: 26.87 milisekundy
