@@ -9,6 +9,7 @@ class Node {
 
     public:
     Node(double newElem, Node* newNext);
+    Node(const Node& newNode);
     ~Node();
     double getElement() {return this->elem;}
     Node* getNext() {return this->next;}
@@ -20,6 +21,12 @@ Node::Node(double newElem, Node* newNext)
 {
     this->elem = newElem;
     this->next = newNext;
+}
+
+Node::Node(const Node& newNode)
+{
+    this->elem = newNode.elem;
+    this->next = newNode.next;
 }
 
 Node::~Node()

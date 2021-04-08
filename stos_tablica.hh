@@ -33,7 +33,7 @@ Stos_tablica::Stos_tablica(int size)
 
 Stos_tablica::~Stos_tablica()
 {
-    delete [] tab;
+    delete [] this->tab;
 }
 
 double& Stos_tablica::top()

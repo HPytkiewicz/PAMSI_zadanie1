@@ -1,6 +1,8 @@
+#define EmptyStackException -1
+
 #include <iostream>
 #include <cstdlib>
-#include <node.hh>
+#include "node.hh"
 
 class Lista {
     private:
@@ -9,9 +11,10 @@ class Lista {
     Lista();
     ~Lista();
     bool empty() const;
-    const double& front() const;
+    const double front() const;
     void addFront(const double& newElem);
     void removeFront();
+    Node* getHead() const {return head;}
 };
 
 Lista::Lista()
@@ -29,11 +32,18 @@ bool Lista::empty() const
     return (head==NULL);
 }
 
-const double& Lista::front() const
+const double Lista::front() const
 {
+    try
+    {    
     if(this->empty())
-        return 0;   //tymczasowe
+        throw EmptyStackException;
     return this->head->getElement();
+    }
+    catch(int ex)
+    {
+        std::cout << "Error: Stack empty.";
+    }
 }
 
 void Lista::addFront(const double& newElem)
@@ -44,7 +54,15 @@ void Lista::addFront(const double& newElem)
 
 void Lista::removeFront()
 {
+    try
+    {    
+    if(this->empty())
+        throw EmptyStackException;
     Node* temp = this->head;
     this->head=this->head->getNext();
-    delete temp;
+    }
+    catch(int ex)
+    {
+        std::cout << "Error: Stack empty.";
+    }
 }
